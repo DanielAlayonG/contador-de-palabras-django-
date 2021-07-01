@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'estudio/style.css' %}">
+    <title>Word Counter</title>
+</head>
+<body>
+    
+    <h1>Contador de palabras</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% if texto %}
+            <textarea name="text" id="" cols="100" rows="30" placeholder="Escribe tu texto aqui.">{{texto}}</textarea>
+        {% else %}
+            <textarea name="text" id="" cols="100" rows="30"  placeholder="Escribe tu texto aqui."></textarea>
+        {% endif %}
+        
+        <input style="display:block;" type="submit" value="Enviar">
+    </form>
+
+    {% if palabras %}
+        <h3>La cantidad de palabras en el texto son: {{palabras}}</h3>
+    {% endif %}
+    
+    
+
+</body>
+</html>
